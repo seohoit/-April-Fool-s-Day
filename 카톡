@@ -1,0 +1,39 @@
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"></script>
+<script>
+  // 본인의 JavaScript 앱 키 입력 (중요)
+  Kakao.init('YOUR_JAVASCRIPT_KEY'); 
+
+  function sendMonkeyLink() {
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '송금보내요', // 메시지 제목은 유지
+        description: '1,000,000원을 보냈어요.', // 메시지 내용 유지
+
+        // [중요 1] 여기에 '숭이' 이미지 주소를 넣으세요.
+        // GitHub Repository에 이미지를 올리고 그 raw 주소를 사용하거나,
+        // 이미지를 보여주는 새로운 .html 파일을 만들어서 그 URL을 입력합니다.
+        // 예를 들어, GitHub Pages 주소가 https://사용자아이디.github.io 라면
+        // 그곳에 image_1.png를 올리고 아래 주소를 사용합니다.
+        imageUrl: 'https://사용자아이디.github.io/image_1.png', 
+        
+        link: {
+          // [중요 2] 이미지를 클릭했을 때 보여줄 링크 (전과 동일)
+          mobileWebUrl: 'https://사용자아이디.github.io', 
+          webUrl: 'https://사용자아이디.github.io',
+        },
+      },
+      buttons: [
+        {
+          title: '송금 받기', // 버튼 텍스트 유지
+          link: {
+            // [중요 3] 버튼을 클릭했을 때 보여줄 링크 (전과 동일)
+            mobileWebUrl: 'https://사용자아이디.github.io',
+            webUrl: 'https://사용자아이디.github.io',
+          },
+        },
+      ],
+    });
+  }
+</script>
+<button onclick="sendMonkeyLink()">숭이 이미지로 송금 링크 보내기</button>
